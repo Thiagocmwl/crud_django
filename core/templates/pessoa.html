@@ -1,0 +1,31 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ object_list.nome }}</title>
+
+    {% bootstrap_css %}
+</head>
+
+<body>
+    <div class="container">
+        <h1>{{ object_list.nome }}</h1>
+        <br><br>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <img src="{{ object_list.foto.url }}" alt="{{ object_list.nome }}" class="img-fluid">
+            </div>
+            <div class="col-2"></div>
+        </div>        
+    </div>
+
+    {% bootstrap_javascript jquery='full' %}
+</body>
+
+</html>

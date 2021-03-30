@@ -1,0 +1,45 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    {% bootstrap_css %}
+</head>
+
+<body>
+    <div class="container">
+        <h1>Pessoas</h1>
+        <br><br>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Gênero</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for p in object_list %}
+                {% if p.mostrar == True %}
+                <tr>
+                    <td><a href="{% url 'pessoa' p.id %}">{{ p.nome }}</a></td>
+                    <td>{{ p.idade }}</td>
+                    <td>{{ p.genero }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% bootstrap_javascript jquery='full' %}
+</body>
+
+</html>
