@@ -22,7 +22,30 @@
                 <img src="{{ object_list.foto.url }}" alt="{{ object_list.nome }}" class="img-fluid">
             </div>
             <div class="col-2"></div>
-        </div>        
+        </div>  
+        <br>
+        <div class="row">
+            <div class="col-12">
+                <form action="{% url 'delete' object_list.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-block">Deletar</button>
+                </form>
+                
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12">
+                    <a href="{% url 'update' object_list.id %}" type="submit" class="btn btn-primary btn-block">Alterar</a>
+                
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="{% url 'index' %}">Retornar à Home</a>
+            </div>
+        </div>      
     </div>
 
     {% bootstrap_javascript jquery='full' %}
